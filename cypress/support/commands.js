@@ -22,4 +22,15 @@
 //
 //
 // -- This will overwrite an existing command --
+
+//const cypress = require("cypress");
+
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+Cypress.Commands.add('login',() => {
+  cy.visit('/');
+  cy.get('a#login2').click();
+  cy.get('input#loginusername').should('be.visible');
+  cy.get('input#loginusername').type(Cypress.env('USER_NAME'),{force:true});
+  cy.get('input#loginpassword').type(Cypress.env('USER_PASSWORD'),{force:true}); 
+  cy.contains('button.btn-primary','Log in').click();
+})

@@ -7,8 +7,8 @@ describe('add new product to cart', () => {
     cy.get('input#loginusername').should('be.visible');
     //cy.get('input#loginusername').type(Cypress.env('USER_NAME'),{force:true});
     //cy.get('input#loginpassword').type(Cypress.env('USER_PASSWORD'),{force:true}); 
-    cy.get('input#loginusername').focus().type(USER_NAME).blur();
-    cy.get('input#loginpassword').type(USER_PASSWORD);
+    cy.get('input#loginusername').type(USER_NAME,{force:true});
+    cy.get('input#loginpassword').type(USER_PASSWORD,{force:true});
     cy.contains('button.btn-primary','Log in').click();
   });
   it('verify we can add a new product to cart', () => {
